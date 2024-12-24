@@ -87,20 +87,42 @@
       <div class="slides"><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### uv: An Extremely Fast Python Package Manager
+## uv: Speed Meets Simplicity in Python Package Management
 
 **RND Light-Talk**, December 2024
 
-Yonatan Bitton / [@bityob](https://linktr.ee/bityob)
+
 
 [bit.ly/uv-intro](https://bit.ly/uv-intro)
 
+<div class="" style="position: absolute; left: 0%; top: 70%; height: 30%; width: 40%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
+
+Yonatan Bitton [@bityob](https://linktr.ee/bityob)
+</div>
+
+<div class="" style="position: absolute; left: 60%; top: 70%; height: 30%; width: 40%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
+
 <img src="Pasted image 20241224034213.png" alt="" style="width: 150px; object-fit: fill">
 
+</div>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
+### The Painful Past of Python Packaging
 
-Notes:
-<img src="Pasted image 20241223173216.png" alt="" style="width: 300px; object-fit: fill">
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Python packaging can be hard for beginners:
+    - Bootstrapping, i.e., how to even get started!
+    - Activation, i.e., how do virtual environments (venvs) in Python work?
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Managing Python versions
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Handling "dependency hell"
+- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->No unified tool for all workflows
+- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->pip is very, very slow
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Meet **uv**
+
+An **extremely fast** Python package and project manager, built with the power of **Rust**.
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -121,7 +143,7 @@ Notes:
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-<img src="Pasted image 20241223171715.png" alt="" style="object-fit: scale-down">
+<img src="Presentations/Pasted image 20241223171715-Photoroom.png" alt="" style="object-fit: scale-down">
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -169,6 +191,8 @@ pipx install uv
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
+<div style="width: 150%; font-size: 150%">
+
 ```python [1-4|5-14|15-22]
 $ uv venv
 Using CPython 3.10.14
@@ -193,10 +217,15 @@ jinja2==3.1.5
 markupsafe==3.0.2
 werkzeug==3.1.3
 ```
+
+</div>
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ### uv commands
+
+<div style="position: fixed; bottom: 0; width: 100%; text-align: center; font-size: 70%; color: gray;">
+<a href="https://florianbrand.de/posts/uv-intro#usage">Source: https://florianbrand.de/posts/uv-intro#usage</a><!-- .element: class="fragment" -->
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -247,7 +276,7 @@ uv add <package> --no-sync
 
 |uv command|pip command(s)|Notes|
 |---|---|---|
-|`uv run <python_file>`|`source .venv/activate && python <python_file>`||
+|`uv run <python_file>`|`source .venv/activate && python <python_file>`|uv downloads python if not exists and sync the venv before run |
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -258,6 +287,8 @@ uv add <package> --no-sync
 |`uv remove <package>`|`pip uninstall <package> && pip freeze > requirements.txt`||
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<div style="width: 150%; font-size: 150%">
 
 ```python [1-2|3-10|11-14|15-24]
 $ uv init
@@ -285,6 +316,8 @@ $ uv run pycowsay "Hello Python World!"
            ||----w |
            ||     ||
 ```
+
+</div>
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -297,6 +330,8 @@ $ uv run pycowsay "Hello Python World!"
 |`uv python install <version>`|N/A|using precompiled binaries|
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<div style="width: 150%; font-size: 150%">
 
 ```python [1-11|12-14]
 $ uv python list
@@ -314,6 +349,8 @@ $ uv python install cpython-3.10.15-linux-x86_64-gnu
 Installed Python 3.10.15 in 4.74s
  + cpython-3.10.15-linux-x86_64-gnu
 ```
+
+</div>
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -355,11 +392,13 @@ $ uvx art text "Hello World!"
 ### Scripts
 
 - Scripts are single files without project files
-- A script without dependencies is easy, just `uv run <script>` 
+- A script without dependencies is easy, just `uv run script` 
 - But how can we run a script with dependencies??
 - &shy;<!-- .element: class="fragment" data-fragment-index="1" -->uv supports specifying dependencies **on invocation**
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<div style="width: 150%; font-size: 150%">
 
 ```python [1-12|14-19]
 $ cat http_requests_uuid.py
@@ -382,6 +421,8 @@ $ uv run --with requests http_requests_uuid.py
 {'uuid': 'bed4fdd9-0e7b-4641-b9ed-19889e435c42'}
 {'uuid': '6944a068-67d9-4778-bb40-2b77c9115e5e'}
 ```
+
+</div>
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -397,6 +438,8 @@ https://peps.python.org/pep-0723/
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 Now we can use something like this 
+
+<div style="width: 150%; font-size: 150%">
 
 ```python [1-2|3-9|3-20|21-27]
 $ uv add --script http_requests_uuid.py requests
@@ -427,12 +470,16 @@ Reading inline script metadata from `http_requests_uuid.py`
 {'uuid': 'd22336bb-cd53-40d9-b1cb-c2348cdcdac6'}
 {'uuid': '81e9cda6-6072-4fd8-80b0-08cc55553fd5'}
 ```
+
+</div>
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 You can limit uv to only considering distributions released before a specific date
 
-```python [7|1-15]
+<div style="width: 150%; font-size: 150%">
+
+```python [7|13-15]
 $ cat example_requests.py
 # /// script
 # dependencies = [
@@ -450,15 +497,18 @@ Reading inline script metadata from `example_requests.py`
 2.24.0
 ```
 
+</div>
+
+
 <div style="position: fixed; bottom: 0; width: 100%; text-align: center; font-size: 70%; color: gray;">
 <a href="https://docs.astral.sh/uv/guides/scripts/">Source: https://docs.astral.sh/uv/guides/scripts/</a>
 </div><!-- .element: class="fragment" -->
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-Now, the interesting thing...
+Now, the interesting part...
 
-### Why UV is so fast?
+### Why UV is so fast?<!-- .element: class="fragment" -->
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -551,15 +601,18 @@ Credit to Andrew Gallant (@BurntSushi)
 
 ### Reading package `METADATA`
 
-- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Built distributions (wheels) are packaged as zip archive
-- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Somewhere in the zip, there's a `METADATA` file
-- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Some registries expose it directly, some don't
-- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->**Goal:** avoid downloading the entire zip just to read the `METADATA`
-
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Built distributions (wheels) are packaged as ZIP archives
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Somewhere within the ZIP file, there's a `METADATA` file
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Some registries expose the `METADATA` file directly, while others do not
+- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->In such cases, we may need to run Python code to determine the package dependencies 🙁
 
 <div style="position: fixed; bottom: 0; width: 100%; text-align: center; font-size: 70%; color: gray;">
 <a href="https://youtu.be/gSKTfG1GXYQ?t=1884">Source: https://youtu.be/gSKTfG1GXYQ?t=1884</a>
 </div><!-- .element: class="fragment" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+**Goal**: Avoid downloading the entire ZIP archive or running Python code just to read the `METADATA` file and determine package dependencies.
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -639,10 +692,9 @@ struct ZeroCopy<'a> {
 
 Total zero-copy
 
-- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Using **total zero-copy** guarantees that no data is copied during deserialization and no work is done to deserialize data
-- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->It achieves this by structuring its encoded representation so that it is the same as the in-memory representation of the source type
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<img src="Pasted image 20241224024718.png" alt="" style="object-fit: scale-down">
+
 
 ```rust
 struct Example {
@@ -652,25 +704,28 @@ struct Example {
   c: char,
 }
 ```
-
-<img src="Pasted image 20241224024718.png" alt="" style="object-fit: scale-down">
+<!-- .element: class="fragment" -->
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-- On `json`, first you read the file from disc, then run a parser, and then you grab the contents and put them in the struct. All these operations would get **slower and slower as the data got bigger**
-- This operation doesn't **scale** with our data. No matter how much or how little data we have
+- On JSON, first you read the file from disc, then run a parser, and then you grab the contents and put them in the struct. All these operations would get **slower and slower as the data got bigger**
+- Instead, the **zero-copy** the operation, doesn't **scale** with our data. No matter how much or how little data we have
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-- On uv they store metadata in disc in the same representation like the in-memory representation of the `json`. Now, you just need to read from disc, no need to parse it again and allocate a lot of memory for that
+On UV, metadata is stored on disk in the same format as its in-memory JSON representation. This allows you to simply read it from the disk without needing to reparse it or allocate additional memory.
+
+<div style="position: fixed; bottom: 0; width: 100%; text-align: center; font-size: 70%; color: gray;">
+<a href="https://youtu.be/gSKTfG1GXYQ?t=2246">Source: https://youtu.be/gSKTfG1GXYQ?t=2246</a>
+</div>
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### In Summary: Why Python UV Tool Matters
+### Takeaways
 
-- **Impressive Performance**: The effort to make this tool fast is remarkable. It's a testament to Python's potential in high-performance tasks.
-- **Cool and Innovative**: The features and design are both practical and elegant—truly worth exploring.
-- **Highly Recommended**: Start experimenting with it today and see the results for yourself!
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->**Blazing Speed**: uv delivers swift package management and environment setup.
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->**Innovative Approach**: Focused on speed and efficiency, uv redefines Python tooling.
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->**Try It Now**: Explore uv’s potential to elevate your Python development.
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -703,6 +758,8 @@ struct Example {
 - Revisiting uv ([loopwerk.io](https://www.loopwerk.io/articles/2024/python-uv-revisited/))
 - How to migrate your Poetry project to uv ([loopwerk.io](https://www.loopwerk.io/articles/2024/migrate-poetry-to-uv/))
 - Zero-copy deserialization ([rkyv.org](https://rkyv.org/zero-copy-deserialization.html))
+- uv docs ([astral.sh](https://docs.astral.sh/uv/))
+- Nice uv cheatsheet ([dev.to](https://dev.to/codemaker2015/introducing-uv-next-gen-python-package-manager-4jbc))
 </div></script></section></div>
     </div>
 
