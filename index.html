@@ -191,8 +191,6 @@ pipx install uv
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-<div style="width: 150%; font-size: 150%">
-
 ```python [1-4|5-14|15-22]
 $ uv venv
 Using CPython 3.10.14
@@ -217,8 +215,6 @@ jinja2==3.1.5
 markupsafe==3.0.2
 werkzeug==3.1.3
 ```
-
-</div>
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -288,7 +284,7 @@ uv add <package> --no-sync
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-<div style="width: 150%; font-size: 150%">
+<!--<div style="width: 150%; font-size: 150%"> -->
 
 ```python [1-2|3-10|11-14|15-24]
 $ uv init
@@ -317,7 +313,7 @@ $ uv run pycowsay "Hello Python World!"
            ||     ||
 ```
 
-</div>
+<!--</div>-->
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -331,7 +327,7 @@ $ uv run pycowsay "Hello Python World!"
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-<div style="width: 150%; font-size: 150%">
+<!--<div style="width: 150%; font-size: 150%"> -->
 
 ```python [1-11|12-14]
 $ uv python list
@@ -350,7 +346,7 @@ Installed Python 3.10.15 in 4.74s
  + cpython-3.10.15-linux-x86_64-gnu
 ```
 
-</div>
+<!--</div>-->
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -398,7 +394,7 @@ $ uvx art text "Hello World!"
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-<div style="width: 150%; font-size: 150%">
+<!--<div style="width: 150%; font-size: 150%"> -->
 
 ```python [1-12|14-19]
 $ cat http_requests_uuid.py
@@ -422,7 +418,7 @@ $ uv run --with requests http_requests_uuid.py
 {'uuid': '6944a068-67d9-4778-bb40-2b77c9115e5e'}
 ```
 
-</div>
+<!--</div>-->
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -439,7 +435,7 @@ https://peps.python.org/pep-0723/
 
 Now we can use something like this 
 
-<div style="width: 150%; font-size: 150%">
+<!--<div style="width: 150%; font-size: 150%"> -->
 
 ```python [1-2|3-9|3-20|21-27]
 $ uv add --script http_requests_uuid.py requests
@@ -471,13 +467,13 @@ Reading inline script metadata from `http_requests_uuid.py`
 {'uuid': '81e9cda6-6072-4fd8-80b0-08cc55553fd5'}
 ```
 
-</div>
+<!--</div>-->
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 You can limit uv to only considering distributions released before a specific date
 
-<div style="width: 150%; font-size: 150%">
+<!--<div style="width: 150%; font-size: 150%"> -->
 
 ```python [7|13-15]
 $ cat example_requests.py
@@ -497,7 +493,7 @@ Reading inline script metadata from `example_requests.py`
 2.24.0
 ```
 
-</div>
+<!--</div>-->
 
 
 <div style="position: fixed; bottom: 0; width: 100%; text-align: center; font-size: 70%; color: gray;">
