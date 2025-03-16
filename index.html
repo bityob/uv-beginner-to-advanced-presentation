@@ -89,7 +89,7 @@
 
 ## uv: Speed Meets Simplicity in Python Package Management
 
-**RND Light-Talk**, December 2024
+**PyWeb-IL Meetup**, March 2025
 
 [bit.ly/uv-intro](https://bit.ly/uv-intro)
 
@@ -135,27 +135,40 @@ An **extremely fast** Python package and project manager, built with the power o
 
 ### New Tool, Big Impact
 
-- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->21+ million downloads last month
-- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->33.3k stars in GitHub
-- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->6.8+ billion packages were downloaded using UV last month, which is 13% of total downloads
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->29+ million downloads last month
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->44.4k stars in GitHub
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->6.9+ billion packages were downloaded using UV last month, which is 13% of total downloads
+
+Notes:
+- uv downloads last month: https://pypistats.org/packages/uv
+- uv github stars: https://github.com/astral-sh/uv
+- google biqquery with pypi data: https://console.cloud.google.com/marketplace/product/gcp-public-data-pypi/pypi?pli=1&project=learned-pier-349616&inv=1&invt=AbsNeg
+
+```sql
+SELECT details.installer.name, count(*) as count
+FROM `bigquery-public-data.pypi.file_downloads` 
+WHERE timestamp >= TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 30 DAY)
+group by details.installer.name
+order by count desc
+```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-<img src="uv-beginner-to-advanced-presentation-images/Pasted image 20241223171715-Photoroom.png" alt="" style="object-fit: scale-down">
+<img src="uv-beginner-to-advanced-presentation-images/Pasted image 20250316220111 1.png" alt="" style="object-fit: scale-down">
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ### Agenda
 
-- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Overview
+- <!-- .element: class="fragment" data-fragment-index="1" -->Overview
 	- Installation
 	- pip interface
 	- uv commands
-- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->The uv ecosystem
++ <!-- .element: class="fragment" data-fragment-index="2" -->The uv ecosystem
 	- Projects
 	- Tools
 	- Scripts
-- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Why UV is so fast?
++ <!-- .element: class="fragment" data-fragment-index="3" -->Why UV is so fast?
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -240,7 +253,7 @@ werkzeug==3.1.3
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-Since we are using docker to run our applications, you can't run `uv add <package>` on local, since it will try to **install the packages too.**
+When the environment runs inside Docker, you can't run `uv add <package>` on local, since it will try to **install the packages too.**
 
 For such cases, just run with `--no-sync` flag
 
