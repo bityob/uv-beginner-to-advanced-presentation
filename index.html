@@ -108,9 +108,9 @@ Yonatan Bitton [@bityob](https://linktr.ee/bityob)
 
 ### `whoami`
 
-- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Developer on the Core team at **Perception Point**, recently acquired by **Fortinet**
-- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->We provide cybersecurity protection for emails and more
-- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Passionate about **Python**, enjoy solving tough **challenges** and understanding things **inside out**
+- Developer on the Core team at **Perception Point**, recently acquired by **Fortinet**
+-  We provide cybersecurity protection for emails and more
+-  Passionate about **Python**, enjoy solving tough **challenges** and understanding things **inside out**
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -120,7 +120,7 @@ Yonatan Bitton [@bityob](https://linktr.ee/bityob)
 - Meet `uv`
 - Getting Started (Install, Commands, Features)
 - The `uv` Ecosystem (Scripts & Tools)
-- Why is `uv` So Fast?
+- Why `uv` is So Fast?
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -202,11 +202,11 @@ pipx install uv
 
 ### `pip` interface
 
-- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Drop-in replacement for common `pip` and `virtualenv` commands
-- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->For legacy workflows or when high-level commands lack control
-- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Creating a virtual environment: `uv venv`
-- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->Install a package: `uv pip install flask`
-- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->List packages: `uv pip freeze`
+- Drop-in replacement for common `pip` and `virtualenv` commands
+- For legacy workflows or when high-level commands lack control
+- Creating a virtual environment: `uv venv`
+- Install a package: `uv pip install flask`
+- List packages: `uv pip freeze`
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -520,11 +520,8 @@ Installed 5 packages in 51ms
 ```
 
 <!--</div>-->
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-visibility="hidden" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-<!--  Bonus  -->
-
 
 We can also limit `uv` to distributions available when the script was created
 
@@ -558,11 +555,8 @@ Installed 5 packages in 40ms
 Now, the interesting part...
 
 ### Why uv is so fast?<!-- .element: class="fragment" -->
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-visibility="hidden" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-<!--  Bonus  -->
-
 
 ### Pure Rust
 
@@ -570,13 +564,10 @@ Written in pure **Rust**, 100k~ lines of code.
 
 Notes:
 - But... uv has gotten significantly faster over time
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-visibility="hidden" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-<!--  Bonus  -->
-
-
-Fast python install using precompiled binaries.
+Fast python install using precompiled binaries
 
 <img src="attachments/Pasted image 20250323232516.png" alt="" style="object-fit: scale-down">
 
@@ -596,7 +587,7 @@ Fast python install using precompiled binaries.
 - &shy;<!-- .element: class="fragment" data-fragment-index="4" -->`1.2.3.4.5-a8.post9`
 - &shy;<!-- .element: class="fragment" data-fragment-index="5" -->`2025.3.24.pre123`
 
-Representing these is pretty hard. <!-- .element: class="fragment" -->
+Representing these is pretty hard... <!-- .element: class="fragment" -->
 
 <div style="position: fixed; bottom: 0; width: 100%; text-align: center; font-size: 70%; color: gray;">
 <a href="https://youtu.be/gSKTfG1GXYQ?t=1544">Source: https://youtu.be/gSKTfG1GXYQ?t=1544</a>
@@ -619,14 +610,15 @@ struct VersionFull {
 }
 ```
 
-Note, the `release` is a vector...
+Note, the `release` field is a vector...
+<!-- .element: class="fragment" -->
 
 Notes:
 - Vectors, memory allocation, release segments,
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-We can represent over 90% of versions with only 64 bits, making it extremely space-efficient. 
+We can represent over 90% of versions with only 64 bits, making it extremely space-efficient
 
 ```rust
 struct VersionSmall(u64);
@@ -722,21 +714,21 @@ Range: bytes=300-400
 <li>Really fast and very space efficient</li>
 <li>This only applies for files, not for metadata</div></li>
 </ul>
-</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-visibility="hidden" -->
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+For metadata, there is another **last** hack called,
+
+**Zero-copy deserialization**
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-visibility="hidden" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 <!--  Bonus  -->
 
-
-For metadata, there is another **last** hack called,
-
-**Zero-copy deserialization.**
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
 ### Zero-copy deserialization
 
 A technique that reduces the time and memory required to access and use data by **directly referencing bytes in the serialized form**
+<!-- .element: class="fragment" -->
 
 
 <div style="position: fixed; bottom: 0; width: 100%; text-align: center; font-size: 70%; color: gray;">
@@ -744,6 +736,26 @@ A technique that reduces the time and memory required to access and use data by 
 </div><!-- .element: class="fragment" -->
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+Normal JSON parsing
+
+<img src="attachments/Pasted image 20250324135330.png" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+Simple Zero Copy
+
+<img src="attachments/Pasted image 20250324140553.png" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+Total Zero Copy
+
+<img src="attachments/Pasted image 20250324143548.png" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-visibility="hidden" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<!--  Bonus  -->
 
 <img src="attachments/Pasted image 20250324014805.png" alt="" style="object-fit: scale-down">
 
@@ -760,8 +772,11 @@ On `uv`, metadata is stored on disk in the same format as its in-memory JSON rep
 <div style="position: fixed; bottom: 0; width: 100%; text-align: center; font-size: 70%; color: gray;">
 <a href="https://youtu.be/gSKTfG1GXYQ?t=2246">Source: https://youtu.be/gSKTfG1GXYQ?t=2246</a>
 </div>
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-visibility="hidden" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<!--  Bonus  -->
+
 
 Simple zero-copy
 
@@ -816,8 +831,11 @@ struct PartialZeroCopy<'a> {
 Notes:
 	- Not all elements can used zero copy
 	- "we can't borrow types like `u64` or `char` that have alignment requirements since our buffer might not be properly aligned. We have to immediately parse and store those! Even though we borrowed 42 of the buffer's bytes, we missed out on the last 12 and still had to parse through the buffer to find out where everything is."
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-visibility="hidden" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<!--  Bonus  -->
+
 
 Total zero-copy
 
@@ -919,6 +937,7 @@ Yonatan Bitton [@bityob](https://linktr.ee/bityob)
 	<script src="plugin/chart/chart.min.js"></script>
 	<script src="plugin/chart/plugin.js"></script>
 	<script src="plugin/customcontrols/plugin.js"></script>
+	<script src="plugin/elapsed-time-bar/elapsed-time-bar.js"></script>
 
     <script>
       function extend() {
@@ -974,10 +993,11 @@ Yonatan Bitton [@bityob](https://linktr.ee/bityob)
 		  RevealMermaid,
 		  RevealChart,
 		  RevealCustomControls,
+		  ElapsedTimeBar
         ],
 
 
-    	allottedTime: 120 * 1000,
+    	allottedTime: 2100 * 1000,
 
 		mathjax3: {
 			mathjax: 'plugin/math/mathjax/tex-mml-chtml.js',
