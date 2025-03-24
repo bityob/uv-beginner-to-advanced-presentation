@@ -658,9 +658,9 @@ Credit to Andrew Gallant (@BurntSushi)
 
 ### Reading package `METADATA`
 
-- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Built distributions (wheels) are packaged as ZIP archives
-- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Somewhere within the ZIP file, there's a `METADATA` file
-- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Some registries expose the `METADATA` file directly, while others do not
+- Built distributions (wheels) are packaged as ZIP archives
+- Somewhere within the ZIP file, there's a `METADATA` file
+- Some registries expose the `METADATA` file directly, while others do not
 
 <div style="position: fixed; bottom: 0; width: 100%; text-align: center; font-size: 70%; color: gray;">
 <a href="https://youtu.be/gSKTfG1GXYQ?t=1884">Source: https://youtu.be/gSKTfG1GXYQ?t=1884</a>
@@ -686,9 +686,11 @@ How to avoid downloading the entire ZIP archive just to read the `METADATA` file
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-- HTTP Range request the Central Directory
-- Locate the `METADATA` file by reading the Central Directory
-- HTTP Range request the `METADATA` file
+### Solution
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->HTTP Range request the Central Directory
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Locate the `METADATA` file by reading the Central Directory
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->HTTP Range request the `METADATA` file
 
 ```http
 GET /example.whl HTTP/1.1
@@ -699,14 +701,16 @@ GET /example.whl HTTP/1.1
 Host: pypi.com
 Range: bytes=300-400
 ```
+<!-- .element: class="fragment" -->
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ### Cache design
 
-- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Global cache of unpacked archives
-- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Most installs are just **hardlinks** from one place to another
-- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Really fast and very space efficient
+- Global cache of unpacked archives
+	- `uv` uses caching to avoid re-downloading dependencies that have already been accessed in prior run
+- Most installs are just **hardlinks** from one place to another
+- Really fast and very space efficient
 
 <aside class="notes"><ul>
 <li><strong>Global cache of unpacked archives:</strong> uv uses aggressive caching to avoid re-downloading (and re-building) dependencies that have already been accessed in prior runs</li>
@@ -714,22 +718,22 @@ Range: bytes=300-400
 <li>Really fast and very space efficient</li>
 <li>This only applies for files, not for metadata</div></li>
 </ul>
-</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-visibility="hidden" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<!--  Bonus  -->
+
 
 For metadata, there is another **last** hack called,
 
 **Zero-copy deserialization**
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-visibility="hidden" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-<!--  Bonus  -->
 
 ### Zero-copy deserialization
 
 A technique that reduces the time and memory required to access and use data by **directly referencing bytes in the serialized form**
 <!-- .element: class="fragment" -->
-
 
 <div style="position: fixed; bottom: 0; width: 100%; text-align: center; font-size: 70%; color: gray;">
 <a href="https://rkyv.org/zero-copy-deserialization.html">Source: https://rkyv.org/zero-copy-deserialization.html</a>
@@ -881,12 +885,15 @@ Notes:
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-### Questions?
+### Thank You!
+### Any Questions?
 
 <div class="" style="position: absolute; left: 0%; top: 70%; height: 30%; width: 40%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
 
 Yonatan Bitton [@bityob](https://linktr.ee/bityob)
 </div>
+
+[bit.ly/uv-intro](https://bit.ly/uv-intro)
 
 <div class="" style="position: absolute; left: 60%; top: 70%; height: 30%; width: 40%; display: flex; flex-direction: column; align-items: center; justify-content: center" >
 
