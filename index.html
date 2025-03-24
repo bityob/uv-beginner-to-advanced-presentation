@@ -694,11 +694,11 @@ How to avoid downloading the entire ZIP archive just to read the `METADATA` file
 
 ```http
 GET /example.whl HTTP/1.1
-Host: pypi.com
+Host: pypi.org
 Range: bytes=-100
 
 GET /example.whl HTTP/1.1
-Host: pypi.com
+Host: pypi.org
 Range: bytes=300-400
 ```
 <!-- .element: class="fragment" -->
